@@ -11,18 +11,17 @@ namespace BabySitter_Rate_Calculator.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
             return View();
         }
+        public IActionResult Calculate(Shift shift)
+        {
+            TimeSpan shiftLength = shift.endTime.Subtract(shift.startTime);
 
+                double ShiftLength = shiftLength.TotalHours*15;
+            return View(ShiftLength);
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -1,8 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<h2>Welcome to the BabySitter Rate Calculator!</h2>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form asp-action="Calculate" asp-controller="Home">
+    <label for="appt">Choose a start time for your shift:</label>
+
+    <input type="time" id="startTime" name="startTime" />
+
+    <label for="appt">Choose an end time for your shift:</label>
+
+    <input type="time" id="endTime" name="endTime" />
+    <fieldset>
+        <p>
+            <label>Choose a family:</label>
+            <select id="family">
+                <option value="familyA">Family A</option>
+                <option value="familyB">Family B</option>
+                <option value="familyC">Family C</option>
+            </select>
+        </p>
+    </fieldset>
+    <input type="submit" />
+</form>
