@@ -18,9 +18,9 @@ namespace BabySitter_Rate_Calculator.Controllers
         public IActionResult Calculate(Shift shift)
         {
             TimeSpan shiftLength = shift.endTime.Subtract(shift.startTime);
-
-                double ShiftLength = shiftLength.TotalHours*15;
-            return View(ShiftLength);
+            double ShiftLength = shiftLength.TotalHours*15;
+            shift.shiftLength = ShiftLength;
+            return View(shift);
         }
         public IActionResult Privacy()
         {
