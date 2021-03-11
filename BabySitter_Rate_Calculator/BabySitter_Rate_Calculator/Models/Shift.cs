@@ -9,7 +9,7 @@ namespace BabySitter_Rate_Calculator.Models
     {
         public DateTime startTime { get; set; }
         public DateTime endTime { get; set; }
-        public double shiftLength { get; set; }
+        public double shiftRate { get; set; }
 
     }
 }
