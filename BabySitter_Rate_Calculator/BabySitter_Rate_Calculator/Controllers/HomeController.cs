@@ -18,9 +18,16 @@ namespace BabySitter_Rate_Calculator.Controllers
         }
         public IActionResult Calculate(Shift shift)
         {
-            Shift shifted = new Shift();
-            shifted.ShiftPay = shift.Calculate(shift);
-            return View(shifted);
+            if(shift.ShiftFamily == "familyA")
+            {
+                Shift shifted = new Shift();
+                shifted.ShiftPay = shift.Calculate(shift);
+                return View(shifted);
+            }
+            else
+            {
+                return View(shift);
+            }
         }
         public IActionResult Privacy()
         {

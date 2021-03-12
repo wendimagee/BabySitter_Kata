@@ -11,6 +11,8 @@ namespace BabySitter_Rate_Calculator.Models
         public DateTime EndTime { get; set; }
         public double ShiftPay { get; set; }
 
+        public string ShiftFamily { get; set; }
+
         public double Calculate(Shift shift)
         {
             double ShiftPay;
