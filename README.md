@@ -1,8 +1,10 @@
 # Babysitter_Kata
 An app to calculate a babysitter's nightly charge
 
-How to run: If you have cloned my repo and have Visual Studio 2019 installed,
-simply open the repo folder and click on the file "BabySitter_Rate_Calculator.sln"
+How to run: I built this program using c#8 and .NET 3.1. If you have cloned my repo and 
+have Visual Studio 2019 installed, simply open the repo folder and click on the 
+file "BabySitter_Rate_Calculator.sln" and run the solution via IIS Express. If you have
+any trouble at all, please reach out to me at wendimagee@gmail.com
 
 First Feature: Calculate total pay, based on babysitter start and end time, and a family.
 
@@ -12,6 +14,8 @@ First Unit test: Family A pays $15/hr before 11pm, and $20/hr the rest of the ni
 Explaining my logic: Because this problem involves a time statement, I believe I should 
 write a MVC web app because the html approach to DateTime is efficient and easy to validate.
 The first step would be to create a new ASP.NET MVC app and then:
+	Build a Shift Model that has properties of 
+		startTime, endTime, shiftRate
 	build a form on the index page to allow the user (babysitter in this case) to input start and end time
 	route the information from the form to an action in the HomeController 
 	Action Calculate() would use family A's regular rate $15/hr to calculate nightly rate

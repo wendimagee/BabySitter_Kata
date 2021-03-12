@@ -7,9 +7,16 @@ namespace BabySitter_Rate_Calculator.Models
 {
     public class Shift
     {
-        public DateTime startTime { get; set; }
-        public DateTime endTime { get; set; }
-        public double shiftRate { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public double ShiftPay { get; set; }
+
+        public double Calculate(Shift shift)
+        {
+            TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
+            double ShiftPay = shiftLength.TotalHours * 15;
+            return ShiftPay;
+        }
 
     }
 }

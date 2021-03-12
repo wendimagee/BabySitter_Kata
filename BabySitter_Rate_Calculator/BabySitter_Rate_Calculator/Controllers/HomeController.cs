@@ -11,16 +11,16 @@ namespace BabySitter_Rate_Calculator.Controllers
 {
     public class HomeController : Controller
     {
+        Shift shift = new Shift();
         public IActionResult Index()
         {
             return View();
         }
         public IActionResult Calculate(Shift shift)
         {
-            TimeSpan shiftLength = shift.endTime.Subtract(shift.startTime);
-            double ShiftLength = shiftLength.TotalHours*15;
-            shift.shiftRate = ShiftLength;
-            return View(shift);
+            Shift shifted = new Shift();
+            shifted.ShiftPay = shift.Calculate(shift);
+            return View(shifted);
         }
         public IActionResult Privacy()
         {

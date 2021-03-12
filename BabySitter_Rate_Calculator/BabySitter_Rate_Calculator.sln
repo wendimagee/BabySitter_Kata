@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabySitter_Rate_Calculator", "BabySitter_Rate_Calculator\BabySitter_Rate_Calculator.csproj", "{E97D4782-77AA-4F8F-B5DB-9A11ABC86396}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabySitter_Rate_Calculator", "BabySitter_Rate_Calculator\BabySitter_Rate_Calculator.csproj", "{E97D4782-77AA-4F8F-B5DB-9A11ABC86396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabySitterTests", "BabySitterTests\BabySitterTests.csproj", "{F9F1075D-AD4B-464C-8D8D-0C99380FD9CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E97D4782-77AA-4F8F-B5DB-9A11ABC86396}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E97D4782-77AA-4F8F-B5DB-9A11ABC86396}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E97D4782-77AA-4F8F-B5DB-9A11ABC86396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F1075D-AD4B-464C-8D8D-0C99380FD9CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F1075D-AD4B-464C-8D8D-0C99380FD9CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F1075D-AD4B-464C-8D8D-0C99380FD9CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F1075D-AD4B-464C-8D8D-0C99380FD9CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
