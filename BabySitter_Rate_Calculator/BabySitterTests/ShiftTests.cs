@@ -7,12 +7,11 @@ namespace BabySitterTests
     public class ShiftTests
     {
         [Theory]
-        [InlineData("3/12/2021 5:00:00 PM", "3/12/2021 8:00:00 PM")]
-        public void ShouldCalculateTotalAmountForHoursWorked(string start, string end)
+        [InlineData("3/12/2021 5:00:00 PM", "3/12/2021 8:00:00 PM", 45)]
+        [InlineData("3/12/2021 7:00:00 PM", "3/12/2021 1:00:00 AM", 100)]
+        public void ShouldCalculateTotalAmountForHoursWorked(string start, string end, double expected)
         {
             // Arrange
-            double expected = 45;
-
             var startTime = DateTime.Parse(start);
             var endTime = DateTime.Parse(end);
 
