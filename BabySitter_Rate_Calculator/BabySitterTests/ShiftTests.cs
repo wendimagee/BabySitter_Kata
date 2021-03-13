@@ -86,18 +86,21 @@ namespace BabySitterTests
             double actual = 20;
             if (shift.ShiftFamily == "familyA")
             {
-                shift.ShiftPay = shift.Calculate(shift);
+                Shift shifted = new Shift();
+                shifted = shift.Calculate(shift);
                 actual = shift.ShiftPay;
             }
             else if (shift.ShiftFamily == "familyB")
             {
-                shift.ShiftPay = shift.CalculateB(shift);
+                Shift shifted = new Shift();
+                shifted = shift.CalculateB(shift);
                 actual = shift.ShiftPay;
             }
             else if (shift.ShiftFamily == "familyC")
             {
-                shift.ShiftPay = shift.CalculateC(shift);
-                actual = shift.ShiftPay;
+                Shift shifted = new Shift();
+                shifted = shift.CalculateC(shift);
+                actual = shifted.ShiftPay;
             }
 
             Assert.Equal(expected, actual);

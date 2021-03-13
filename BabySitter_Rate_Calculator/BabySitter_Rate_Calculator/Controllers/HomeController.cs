@@ -21,19 +21,19 @@ namespace BabySitter_Rate_Calculator.Controllers
             if(shift.ShiftFamily == "familyA")
             {
                 Shift shifted = new Shift();
-                shifted.ShiftPay = shift.Calculate(shift);
+                shifted = shift.Calculate(shift);
                 return View(shifted);
             }
             else if(shift.ShiftFamily == "familyB")
             {
                 Shift shifted = new Shift();
-                shifted.ShiftPay = shift.CalculateB(shift);
+                shifted = shift.CalculateB(shift);
                 return View(shifted);
             }
             else
             {
                 Shift shifted = new Shift();
-                shifted.ShiftPay = shift.CalculateC(shift);
+                shifted = shift.CalculateC(shift);
                 return View(shifted);
             }
         }

@@ -1,4 +1,5 @@
 ﻿<h2>Welcome to the BabySitter Rate Calculator!</h2>
+<br />
 
 <form asp-action="Calculate" asp-controller="Home">
 
@@ -16,7 +17,10 @@
             </select>
         </p>
     </fieldset>
+    <label>Choose a start date for your shift:</label>
     <input type="date" id="StartDate" name="StartDate" />
+    <br />    <br />
+    <br />
 
     <fieldset>
         <p>
@@ -35,11 +39,14 @@
             </select>
         </p>
     </fieldset>
+    <label>Choose an end date for your shift:</label>
     <input type="date" id="EndDate" name="EndDate" />
+    <br />
+    <br />
 
     <fieldset>
         <p>
-            <label>Choose a family:</label>
+            <label>Choose a family to babysit for:</label>
             <select id="ShiftFamily" name="ShiftFamily">
                 <option value="familyA">Family A</option>
                 <option value="familyB">Family B</option>
@@ -47,5 +54,6 @@
             </select>
         </p>
     </fieldset>
+
     <input type="submit" />
 </form>

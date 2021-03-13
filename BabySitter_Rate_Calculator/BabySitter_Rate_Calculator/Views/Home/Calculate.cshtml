@@ -1,3 +1,6 @@
 ﻿@model Shift
 
-<p>Your Rate for this shift is $@Model.ShiftPay.00</p>
+<h2>Your Rate for this shift is $@Model.ShiftPay.00</h2>
+<h3>Your shift starts at: @Model.StartDateTime</h3>
+<h3>Your shift ends at: @Model.EndDateTime</h3>
+<h3>You are babysitting for: @Model.ShiftFamily</h3>
