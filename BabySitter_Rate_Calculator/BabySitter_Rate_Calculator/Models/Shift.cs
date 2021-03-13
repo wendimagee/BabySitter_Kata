@@ -34,5 +34,13 @@ namespace BabySitter_Rate_Calculator.Models
             }
         }
 
+        public double CalculateB(Shift shift)
+        {
+            double ShiftPay;
+            TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
+            ShiftPay = shiftLength.TotalHours * 12;
+            return ShiftPay;
+        }
+
     }
 }
