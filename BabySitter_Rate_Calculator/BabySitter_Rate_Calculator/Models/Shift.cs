@@ -68,7 +68,8 @@ namespace BabySitter_Rate_Calculator.Models
         public double CalculateC(Shift shift)
         {
             double ShiftPay;
-            DateTime nineOclock = DateTime.Parse("09:00:00 PM");
+            var shiftEndDate = shift.EndTime.Date;
+            DateTime nineOclock = shiftEndDate.AddHours(21);
             if (shift.EndTime> nineOclock)
             {
                 TimeSpan earlyShiftLength = nineOclock.Subtract(shift.StartTime);

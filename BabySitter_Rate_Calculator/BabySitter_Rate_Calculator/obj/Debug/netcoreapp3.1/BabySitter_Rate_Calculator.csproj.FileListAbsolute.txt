@@ -8,7 +8,6 @@ C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitte
 C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\bin\Debug\netcoreapp3.1\BabySitter_Rate_Calculator.pdb
 C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\bin\Debug\netcoreapp3.1\BabySitter_Rate_Calculator.Views.dll
 C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\bin\Debug\netcoreapp3.1\BabySitter_Rate_Calculator.Views.pdb
-C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\obj\Debug\netcoreapp3.1\BabySitter_Rate_Calculator.csprojAssemblyReference.cache
 C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\obj\Debug\netcoreapp3.1\BabySitter_Rate_Calculator.AssemblyInfoInputs.cache
 C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\obj\Debug\netcoreapp3.1\BabySitter_Rate_Calculator.AssemblyInfo.cs
 C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\obj\Debug\netcoreapp3.1\BabySitter_Rate_Calculator.csproj.CoreCompileInputs.cache
