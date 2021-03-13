@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,8 @@ namespace BabySitter_Rate_Calculator.Models
 {
     public class Shift
     {
+        [Range (typeof(DateTime), "05:00:00 PM", "11:59:59 PM",
+            ErrorMessage = "Value for Start Time must be between 5:00pm and 2:00am")]
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public double ShiftPay { get; set; }
@@ -17,7 +20,7 @@ namespace BabySitter_Rate_Calculator.Models
         {
             double ShiftPay;
             DateTime lateRate = DateTime.Parse("11:00:00 PM");
-            if (shift.EndTime > lateRate)
+            if (shift.EndTime.Date > shift.StartTime.Date)
             {
                 TimeSpan lateShiftLength = shift.EndTime.Subtract(lateRate);
                 double latePay = lateShiftLength.TotalHours * 20;

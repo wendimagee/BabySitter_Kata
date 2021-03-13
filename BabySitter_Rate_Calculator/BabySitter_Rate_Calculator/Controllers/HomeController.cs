@@ -33,13 +33,9 @@ namespace BabySitter_Rate_Calculator.Controllers
             else
             {
                 Shift shifted = new Shift();
-                //shifted.ShiftPay = shift.CalculateC(shift);
+                shifted.ShiftPay = shift.CalculateC(shift);
                 return View(shifted);
             }
-        }
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
