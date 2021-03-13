@@ -82,6 +82,6 @@ namespace BabySitter_Rate_Calculator.Models
                 return ShiftPay2;
             }
         }
-
+       
     }
 }

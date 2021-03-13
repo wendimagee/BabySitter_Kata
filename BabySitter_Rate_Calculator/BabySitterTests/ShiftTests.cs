@@ -33,6 +33,7 @@ namespace BabySitterTests
         [InlineData("3/12/2021 10:00:00 PM", "3/13/2021 12:00:00 AM", "familyB", 16)]
         [InlineData("3/12/2021 10:00:00 PM", "3/13/2021 3:00:00 AM", "familyB", 76)]
         [InlineData("3/12/2021 05:00:00 PM", "3/12/2021 8:00:00 PM", "familyC", 63)]
+        [InlineData("3/12/2021 07:00:00 PM", "3/12/2021 11:00:00 PM", "familyC", 72)]
         public void ShouldCalculateTotalAmountofHoursWorked(string start, string end, string family, double expected)
         {
             // Arrange
