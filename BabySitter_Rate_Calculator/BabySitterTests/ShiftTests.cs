@@ -32,6 +32,7 @@ namespace BabySitterTests
         [InlineData("3/12/2021 5:00:00 PM", "3/12/2021 8:00:00 PM", "familyB", 36)]
         [InlineData("3/12/2021 10:00:00 PM", "3/13/2021 12:00:00 AM", "familyB", 16)]
         [InlineData("3/12/2021 10:00:00 PM", "3/13/2021 3:00:00 AM", "familyB", 76)]
+        [InlineData("3/12/2021 05:00:00 PM", "3/12/2021 8:00:00 PM", "familyC", 63)]
         public void ShouldCalculateTotalAmountofHoursWorked(string start, string end, string family, double expected)
         {
             // Arrange
@@ -43,7 +44,7 @@ namespace BabySitterTests
             shift.EndTime = endTime;
             shift.ShiftFamily = family;
             // Act
-            double actual;
+            double actual = 10;
             if(shift.ShiftFamily == "familyA")
             {
                 shift.ShiftPay = shift.Calculate(shift);
@@ -54,9 +55,10 @@ namespace BabySitterTests
                 shift.ShiftPay = shift.CalculateB(shift);
                 actual = shift.ShiftPay;
             }
-            else
+            else if(shift.ShiftFamily == "familyC")
             {
-                actual = 30;
+                shift.ShiftPay = shift.CalculateC(shift);
+                actual = shift.ShiftPay;
             }
 
             // Assert

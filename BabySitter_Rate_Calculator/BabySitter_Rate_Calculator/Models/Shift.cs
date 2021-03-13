@@ -29,8 +29,8 @@ namespace BabySitter_Rate_Calculator.Models
             else
             {
                 TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
-                ShiftPay = shiftLength.TotalHours * 15;
-                return ShiftPay;
+                var ShiftPay2 = Math.Round(shiftLength.TotalHours) * 15;
+                return ShiftPay2;
             }
         }
 
@@ -38,31 +38,49 @@ namespace BabySitter_Rate_Calculator.Models
         {
             double ShiftPay;
             DateTime tenOclock = DateTime.Parse("10:00:00 PM");
+            DateTime midnight = DateTime.Parse("12:00:00 AM");
             if (shift.StartTime<tenOclock && shift.EndTime < tenOclock)
             {
                 TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
                 ShiftPay = shiftLength.TotalHours * 12;
                 return ShiftPay;
             }
-            else if(shift.StartTime>= tenOclock)
+            else if(shift.StartTime>= tenOclock && shift.EndTime<=midnight)
             {
                 TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
-                ShiftPay = shiftLength.TotalHours * 8;
+                var Shifty = shiftLength.TotalHours;
+                var ShiftPay2 = Math.Round(Shifty) * 8;
+                return Shifty;
+            }
+            else
+            {
+                TimeSpan firstShift = midnight.Subtract(shift.StartTime);
+                double firstPay = firstShift.TotalHours * 8;
+                TimeSpan afterMidnight = shift.EndTime.Subtract(midnight);
+                double secondPay = afterMidnight.TotalHours * 20;
+                ShiftPay = firstPay + secondPay;
                 return ShiftPay;
             }
-            //else if(shift.StartTime < tenOclock && shift.EndTime > tenOclock)
-            //{
-            //    TimeSpan lateShiftLength = shift.EndTime.Subtract(tenOclock);
-            //    double latePay = lateShiftLength.TotalHours * 20;
-            //    TimeSpan earlyShiftLength = lateRate.Subtract(shift.StartTime);
-            //    double earlyPay = earlyShiftLength.TotalHours * 15;
-            //    ShiftPay = earlyPay + latePay;
-            //    return ShiftPay;
-            //}
-            //TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
-            //ShiftPay = shiftLength.TotalHours * 12;
-            ShiftPay = 24;
-            return ShiftPay;
+        }
+        public double CalculateC(Shift shift)
+        {
+            double ShiftPay;
+            DateTime nineOclock = DateTime.Parse("09:00:00 PM");
+            if (shift.EndTime> nineOclock)
+            {
+                TimeSpan earlyShiftLength = nineOclock.Subtract(shift.StartTime);
+                double earlyPay = earlyShiftLength.TotalHours * 21;
+                TimeSpan lateShiftLength = shift.EndTime.Subtract(nineOclock);
+                double latePay = lateShiftLength.TotalHours * 15;
+                ShiftPay = earlyPay + latePay;
+                return ShiftPay;
+            }
+            else
+            {
+                TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
+                var ShiftPay2 = shiftLength.TotalHours * 21;
+                return ShiftPay2;
+            }
         }
 
     }
