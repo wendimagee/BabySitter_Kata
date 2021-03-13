@@ -30,12 +30,10 @@ Feature 3: Allow the user to choose a family to babysit
 Feature 4: Make a corresponding rate calculator for family B
 	a. Make a test for feature 4
 	b. code feature 4
-***********************Break for Sanity's Sake***********
-
-Feature 5. Mak a corresponding rate calculator for family C
+Feature 5. Make a corresponding rate calculator for family C
 	a. Make a test for feature 5
 	b. Code Feature 5
-
+Feature 6. The time ranges are the same as the babysitter (5pm through 4am)
 
 
 

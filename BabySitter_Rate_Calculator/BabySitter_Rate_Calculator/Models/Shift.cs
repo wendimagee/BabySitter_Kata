@@ -8,8 +8,12 @@ namespace BabySitter_Rate_Calculator.Models
 {
     public class Shift
     {
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public DateTime StartDateTime { get; set; }
+        public DateTime EndDateTime { get; set; }
         public double ShiftPay { get; set; }
 
         public string ShiftFamily { get; set; }
@@ -17,20 +21,21 @@ namespace BabySitter_Rate_Calculator.Models
         public double Calculate(Shift shift)
         {
             double ShiftPay;
-            var shiftStartDate = shift.StartTime.Date;
-            DateTime elevenOclock = shiftStartDate.AddHours(23);
-            if (shift.EndTime.Date > shift.StartTime.Date)
+            shift.StartDateTime = shift.StartDate.Add(shift.StartTime);
+            shift.EndDateTime = shift.EndDate.Add(shift.EndTime);
+            DateTime elevenOclock = shift.StartDate.AddHours(23);
+            if (shift.EndDateTime > shift.StartDateTime)
             {
-                TimeSpan lateShiftLength = shift.EndTime.Subtract(elevenOclock);
+                TimeSpan lateShiftLength = shift.EndDateTime.Subtract(elevenOclock);
                 double latePay = lateShiftLength.TotalHours * 20;
-                TimeSpan earlyShiftLength = elevenOclock.Subtract(shift.StartTime);
+                TimeSpan earlyShiftLength = elevenOclock.Subtract(shift.StartDateTime);
                 double earlyPay = earlyShiftLength.TotalHours * 15;
                 ShiftPay = earlyPay + latePay;
                 return ShiftPay;
             }
             else
             {
-                TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
+                TimeSpan shiftLength = shift.EndDateTime.Subtract(shift.StartDateTime);
                 var ShiftPay2 = Math.Round(shiftLength.TotalHours) * 15;
                 return ShiftPay2;
             }
@@ -39,16 +44,17 @@ namespace BabySitter_Rate_Calculator.Models
         public double CalculateB(Shift shift)
         {
             double ShiftPay;
-            var shiftStartDate = shift.StartTime.Date;
-            DateTime tenOclock = shiftStartDate.AddHours(22);
-            DateTime midnight = shiftStartDate.AddHours(24);
-            if (shift.StartTime<tenOclock && shift.EndTime < tenOclock)
+            shift.StartDateTime = shift.StartDate.Add(shift.StartTime);
+            shift.EndDateTime = shift.EndDate.Add(shift.EndTime);
+            DateTime tenOclock = shift.StartDate.AddHours(22);
+            DateTime midnight = shift.StartDate.AddHours(24);
+            if (shift.StartDateTime<tenOclock && shift.EndDateTime < tenOclock)
             {
                 TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
                 ShiftPay = shiftLength.TotalHours * 12;
                 return ShiftPay;
             }
-            else if(shift.StartTime>= tenOclock && shift.EndTime<=midnight)
+            else if(shift.StartDateTime>= tenOclock && shift.EndDateTime<=midnight)
             {
                 TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
                 double Shifty = shiftLength.TotalHours*8;
@@ -56,9 +62,9 @@ namespace BabySitter_Rate_Calculator.Models
             }
             else
             {
-                TimeSpan firstShift = midnight.Subtract(shift.StartTime);
+                TimeSpan firstShift = midnight.Subtract(shift.StartDateTime);
                 double firstPay = firstShift.TotalHours * 8;
-                TimeSpan afterMidnight = shift.EndTime.Subtract(midnight);
+                TimeSpan afterMidnight = shift.EndDateTime.Subtract(midnight);
                 double secondPay = afterMidnight.TotalHours * 20;
                 ShiftPay = firstPay + secondPay;
                 return ShiftPay;
@@ -67,13 +73,14 @@ namespace BabySitter_Rate_Calculator.Models
         public double CalculateC(Shift shift)
         {
             double ShiftPay;
-            var shiftEndDate = shift.EndTime.Date;
-            DateTime nineOclock = shiftEndDate.AddHours(21);
-            if (shift.EndTime> nineOclock)
+            shift.StartDateTime = shift.StartDate.Add(shift.StartTime);
+            shift.EndDateTime = shift.EndDate.Add(shift.EndTime);
+            DateTime nineOclock = shift.EndDate.AddHours(21);
+            if (shift.EndDateTime> nineOclock)
             {
-                TimeSpan earlyShiftLength = nineOclock.Subtract(shift.StartTime);
+                TimeSpan earlyShiftLength = nineOclock.Subtract(shift.StartDateTime);
                 double earlyPay = earlyShiftLength.TotalHours * 21;
-                TimeSpan lateShiftLength = shift.EndTime.Subtract(nineOclock);
+                TimeSpan lateShiftLength = shift.EndDateTime.Subtract(nineOclock);
                 double latePay = lateShiftLength.TotalHours * 15;
                 ShiftPay = earlyPay + latePay;
                 return ShiftPay;

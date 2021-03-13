@@ -17,8 +17,8 @@ namespace BabySitterTests
             var endTime = DateTime.Parse(end);
 
             var shift = new Shift();
-            shift.StartTime = startTime;
-            shift.EndTime = endTime;
+            shift.StartDateTime = startTime;
+            shift.EndDateTime = endTime;
 
             // Act
             shift.ShiftPay = shift.Calculate(shift);
@@ -42,8 +42,8 @@ namespace BabySitterTests
             var endTime = DateTime.Parse(end);
 
             var shift = new Shift();
-            shift.StartTime = startTime;
-            shift.EndTime = endTime;
+            shift.StartDateTime = startTime;
+            shift.EndDateTime = endTime;
             shift.ShiftFamily = family;
             // Act
             double actual = 10;

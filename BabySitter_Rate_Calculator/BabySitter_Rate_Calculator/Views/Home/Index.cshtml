@@ -3,11 +3,14 @@
 <form asp-action="Calculate" asp-controller="Home">
     <label for="appt">Choose a start time for your shift:</label>
 
-    <input type="datetime-local" id="startTime" name="startTime" />
+    <input type="time" id="StartTime" name="StartTime" />
+    <input type="date" id="StartDate" name="StartDate" />
 
     <label for="appt">Choose an end time for your shift:</label>
 
-    <input type="datetime-local" id="endTime" name="endTime" />
+    <input type="time" id="EndTime" name="EndTime" />
+    <input type="date" id="EndDate" name="EndDate" />
+
     <fieldset>
         <p>
             <label>Choose a family:</label>
