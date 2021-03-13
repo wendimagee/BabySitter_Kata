@@ -26,5 +26,35 @@ namespace BabySitterTests
             // Assert
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData("3/12/2021 5:00:00 PM", "3/12/2021 8:00:00 PM", "familyA", 45)]
+        public void ShouldCalculateTotalAmountofHoursWorked(string start, string end, string family, double expected)
+        {
+            // Arrange
+            var startTime = DateTime.Parse(start);
+            var endTime = DateTime.Parse(end);
+
+            var shift = new Shift();
+            shift.StartTime = startTime;
+            shift.EndTime = endTime;
+            shift.ShiftFamily = family;
+            // Act
+            double actual;
+            if(shift.ShiftFamily == "familyA")
+            {
+                shift.ShiftPay = shift.Calculate(shift);
+                actual = shift.ShiftPay;
+            }
+            else
+            {
+                shift.ShiftPay = shift.Calculate(shift);
+                actual = shift.ShiftPay;
+            }
+
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }
