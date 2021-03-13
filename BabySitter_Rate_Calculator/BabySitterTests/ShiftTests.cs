@@ -68,6 +68,11 @@ namespace BabySitterTests
 
         [Theory]
         [InlineData( "5:00:00 PM", "3/12/2021 12:00:00 AM", "8:00:00 PM", "3/12/2021 12:00:00 AM", "familyA", 45)]
+        [InlineData("5:00:00 PM", "3/12/2021 12:00:00 AM", "8:00:00 PM", "3/12/2021 12:00:00 AM", "familyB", 36)]
+        //[InlineData("10:00:00 PM", "3/12/2021 10:00:00 PM", "12:00:00 AM", "3/13/2021 12:00:00 AM", "familyB", 16)]
+        [InlineData("10:00:00 PM", "3/12/2021 12:00:00 AM", "3:00:00 AM", "3/13/2021 12:00:00 AM", "familyB", 76)]
+        [InlineData("05:00:00 PM", "3/12/2021 12:00:00 AM", "8:00:00 PM", "3/12/2021 12:00:00 AM", "familyC", 63)]
+        [InlineData("07:00:00 PM", "3/12/2021 12:00:00 AM", "11:00:00 PM", "3/12/2021 12:00:00 AM", "familyC", 72)]
 
         public void ShouldTestModelMakingandRate(DateTime startTime, DateTime startDate, DateTime endTime, DateTime endDate, string shiftFamily, double expected)
         {
@@ -78,9 +83,26 @@ namespace BabySitterTests
             shift.EndDate = endDate;
             shift.ShiftFamily = shiftFamily;
 
-            shift.ShiftPay = shift.Calculate(shift);
-            double actual = shift.ShiftPay;
+            double actual = 20;
+            if (shift.ShiftFamily == "familyA")
+            {
+                shift.ShiftPay = shift.Calculate(shift);
+                actual = shift.ShiftPay;
+            }
+            else if (shift.ShiftFamily == "familyB")
+            {
+                shift.ShiftPay = shift.CalculateB(shift);
+                actual = shift.ShiftPay;
+            }
+            else if (shift.ShiftFamily == "familyC")
+            {
+                shift.ShiftPay = shift.CalculateC(shift);
+                actual = shift.ShiftPay;
+            }
+
             Assert.Equal(expected, actual);
+
+
         }
     }
 }
