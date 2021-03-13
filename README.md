@@ -3,11 +3,12 @@ An app to calculate a babysitter's nightly charge
 
 How to run: I built this program using c#8 and .NET 3.1. If you have cloned my repo and 
 have Visual Studio 2019 installed, simply open the repo folder and click on the 
-file "BabySitter_Rate_Calculator.sln" and run the solution via IIS Express.
+file "BabySitter_Rate_Calculator.sln" and run the solution via IIS Express in your preferred web browser. 
+Chrome or Microsoft Edge are recommended. 
 
-I used Xunit through Visual Studio for my testing. The tests I have documented in my 
-BabySitterTests project in the ShiftTests file are for the following features:
-The job:
+I used Xunit through Visual Studio for my testing. I left in my old tests should you need to see them. 
+They are commented out, and only the newest tests can/should run.
+The tests I have documented in my BabySitterTests project in the ShiftTests file are for the following features:
 - Pays different rates for each family (based on bedtimes, kids and pets, etc...)
 - Family A pays $15 per hour before 11pm, and $20 per hour the rest of the night
 - Family B pays $12 per hour before 10pm, $8 between 10 and 12, and $16 the rest of the night
@@ -38,7 +39,6 @@ Feature 6. The time ranges are the same as the babysitter (5pm through 4am)
 	b. Alter the html page
 Feature 7. Visual Appeal! 
 	a. Display more information on Calculate View
-	b. Add some HTML/CSS Pizzazz
 Feature 8. More Testing. 
 
 
