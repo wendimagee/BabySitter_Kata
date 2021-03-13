@@ -12,8 +12,8 @@ namespace BabySitter_Rate_Calculator.Models
         public TimeSpan EndTime { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public DateTime StartDateTime { get; set; }
-        public DateTime EndDateTime { get; set; }
+        public DateTime StartDateTime { get { return StartDate.Add(StartTime); }}
+        public DateTime EndDateTime { get { return EndDate.Add(EndTime); } }
         public double ShiftPay { get; set; }
 
         public string ShiftFamily { get; set; }
@@ -21,10 +21,8 @@ namespace BabySitter_Rate_Calculator.Models
         public double Calculate(Shift shift)
         {
             double ShiftPay;
-            shift.StartDateTime = shift.StartDate.Add(shift.StartTime);
-            shift.EndDateTime = shift.EndDate.Add(shift.EndTime);
             DateTime elevenOclock = shift.StartDate.AddHours(23);
-            if (shift.EndDateTime > shift.StartDateTime)
+            if (shift.EndDateTime.Date > shift.StartDateTime.Date)
             {
                 TimeSpan lateShiftLength = shift.EndDateTime.Subtract(elevenOclock);
                 double latePay = lateShiftLength.TotalHours * 20;
@@ -44,8 +42,6 @@ namespace BabySitter_Rate_Calculator.Models
         public double CalculateB(Shift shift)
         {
             double ShiftPay;
-            shift.StartDateTime = shift.StartDate.Add(shift.StartTime);
-            shift.EndDateTime = shift.EndDate.Add(shift.EndTime);
             DateTime tenOclock = shift.StartDate.AddHours(22);
             DateTime midnight = shift.StartDate.AddHours(24);
             if (shift.StartDateTime<tenOclock && shift.EndDateTime < tenOclock)
@@ -73,8 +69,6 @@ namespace BabySitter_Rate_Calculator.Models
         public double CalculateC(Shift shift)
         {
             double ShiftPay;
-            shift.StartDateTime = shift.StartDate.Add(shift.StartTime);
-            shift.EndDateTime = shift.EndDate.Add(shift.EndTime);
             DateTime nineOclock = shift.EndDate.AddHours(21);
             if (shift.EndDateTime> nineOclock)
             {
