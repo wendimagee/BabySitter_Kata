@@ -75,6 +75,7 @@ namespace BabySitterTests
         [InlineData("10:00:00 PM", "3/12/2021 12:00:00 AM", "3:00:00 AM", "3/13/2021 12:00:00 AM", "familyB", 52)]
         [InlineData("05:00:00 PM", "3/12/2021 12:00:00 AM", "8:00:00 PM", "3/12/2021 12:00:00 AM", "familyC", 63)]
         [InlineData("07:00:00 PM", "3/12/2021 12:00:00 AM", "11:00:00 PM", "3/12/2021 12:00:00 AM", "familyC", 72)]
+        [InlineData("07:00:00 PM", "3/12/2021 12:00:00 AM", "1:00:00 AM", "3/13/2021 12:00:00 AM", "familyC", 102)]
 
         public void ShouldTestModelMakingandRate(DateTime startTime, DateTime startDate, DateTime endTime, DateTime endDate, string shiftFamily, double expected)
         {
