@@ -61,7 +61,7 @@ namespace BabySitter_Rate_Calculator.Models
                 TimeSpan firstShift = midnight.Subtract(shift.StartDateTime);
                 double firstPay = firstShift.TotalHours * 8;
                 TimeSpan afterMidnight = shift.EndDateTime.Subtract(midnight);
-                double secondPay = afterMidnight.TotalHours * 20;
+                double secondPay = afterMidnight.TotalHours * 12;
                 shift.ShiftPay = firstPay + secondPay;
                 return shift;
             }
