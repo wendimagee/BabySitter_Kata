@@ -1,14 +1,40 @@
 ﻿<h2>Welcome to the BabySitter Rate Calculator!</h2>
 
 <form asp-action="Calculate" asp-controller="Home">
-    <label for="appt">Choose a start time for your shift:</label>
 
-    <input type="time" id="StartTime" name="StartTime" />
+    <fieldset>
+        <p>
+            <label>Choose a start time for your shift:</label>
+            <select id="StartTime" name="StartTime">
+                <option typeof="time" value="0.17:00">5:00 PM</option>
+                <option typeof="time" value="0.18:00">6:00 PM</option>
+                <option typeof="time" value="0.19:00">7:00 PM</option>
+                <option typeof="time" value="0.20:00">8:00 PM</option>
+                <option typeof="time" value="0.21:00">9:00 PM</option>
+                <option typeof="time" value="0.22:00">10:00 PM</option>
+                <option typeof="time" value="0.23:00">11:00 PM</option>
+            </select>
+        </p>
+    </fieldset>
     <input type="date" id="StartDate" name="StartDate" />
 
-    <label for="appt">Choose an end time for your shift:</label>
-
-    <input type="time" id="EndTime" name="EndTime" />
+    <fieldset>
+        <p>
+            <label>Choose an end time for your shift:</label>
+            <select id="EndTime" name="EndTime">
+                <option typeof="time" value="0.19:00">7:00 PM</option>
+                <option typeof="time" value="0.20:00">8:00 PM</option>
+                <option typeof="time" value="0.21:00">9:00 PM</option>
+                <option typeof="time" value="0.22:00">10:00 PM</option>
+                <option typeof="time" value="0.23:00">11:00 PM</option>
+                <option typeof="time" value="0.24:00">12:00 AM</option>
+                <option typeof="time" value="0.1:00">01:00 AM</option>
+                <option typeof="time" value="0.2:00">02:00 AM</option>
+                <option typeof="time" value="0.3:00">03:00 AM</option>
+                <option typeof="time" value="0.4:00">04:00 AM</option>
+            </select>
+        </p>
+    </fieldset>
     <input type="date" id="EndDate" name="EndDate" />
 
     <fieldset>
