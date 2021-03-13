@@ -37,8 +37,31 @@ namespace BabySitter_Rate_Calculator.Models
         public double CalculateB(Shift shift)
         {
             double ShiftPay;
-            TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
-            ShiftPay = shiftLength.TotalHours * 12;
+            DateTime tenOclock = DateTime.Parse("10:00:00 PM");
+            if (shift.StartTime<tenOclock && shift.EndTime < tenOclock)
+            {
+                TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
+                ShiftPay = shiftLength.TotalHours * 12;
+                return ShiftPay;
+            }
+            else if(shift.StartTime>= tenOclock)
+            {
+                TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
+                ShiftPay = shiftLength.TotalHours * 8;
+                return ShiftPay;
+            }
+            //else if(shift.StartTime < tenOclock && shift.EndTime > tenOclock)
+            //{
+            //    TimeSpan lateShiftLength = shift.EndTime.Subtract(tenOclock);
+            //    double latePay = lateShiftLength.TotalHours * 20;
+            //    TimeSpan earlyShiftLength = lateRate.Subtract(shift.StartTime);
+            //    double earlyPay = earlyShiftLength.TotalHours * 15;
+            //    ShiftPay = earlyPay + latePay;
+            //    return ShiftPay;
+            //}
+            //TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
+            //ShiftPay = shiftLength.TotalHours * 12;
+            ShiftPay = 24;
             return ShiftPay;
         }
 
