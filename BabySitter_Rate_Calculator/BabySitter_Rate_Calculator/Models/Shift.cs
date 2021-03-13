@@ -40,8 +40,9 @@ namespace BabySitter_Rate_Calculator.Models
         public double CalculateB(Shift shift)
         {
             double ShiftPay;
-            DateTime tenOclock = DateTime.Parse("10:00:00 PM");
-            DateTime midnight = DateTime.Parse("12:00:00 AM");
+            var shiftStartDate = shift.StartTime.Date;
+            DateTime tenOclock = shiftStartDate.AddHours(22);
+            DateTime midnight = shiftStartDate.AddHours(24);
             if (shift.StartTime<tenOclock && shift.EndTime < tenOclock)
             {
                 TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
@@ -51,8 +52,7 @@ namespace BabySitter_Rate_Calculator.Models
             else if(shift.StartTime>= tenOclock && shift.EndTime<=midnight)
             {
                 TimeSpan shiftLength = shift.EndTime.Subtract(shift.StartTime);
-                var Shifty = shiftLength.TotalHours;
-                var ShiftPay2 = Math.Round(Shifty) * 8;
+                double Shifty = shiftLength.TotalHours*8;
                 return Shifty;
             }
             else
