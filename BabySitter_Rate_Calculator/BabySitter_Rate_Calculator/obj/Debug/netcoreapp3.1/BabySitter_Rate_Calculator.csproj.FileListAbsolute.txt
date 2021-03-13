@@ -39,3 +39,5 @@ C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitte
 C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\bin\Debug\netcoreapp3.1\xunit.assert.dll
 C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\bin\Debug\netcoreapp3.1\xunit.core.dll
 C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\bin\Debug\netcoreapp3.1\xunit.execution.dotnet.dll
+C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\obj\Debug\netcoreapp3.1\BabySitter_Rate_Calculator.csprojAssemblyReference.cache
+C:\Users\wendi\source\repos\Babysitter_Kata\BabySitter_Rate_Calculator\BabySitter_Rate_Calculator\obj\Debug\netcoreapp3.1\Razor\Views\Home\ShiftLengthError.cshtml.g.cs

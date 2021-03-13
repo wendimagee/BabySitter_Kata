@@ -18,24 +18,59 @@ namespace BabySitter_Rate_Calculator.Controllers
         }
         public IActionResult Calculate(Shift shift)
         {
-            if(shift.ShiftFamily == "familyA")
+            try
             {
-                Shift shifted = new Shift();
-                shifted = shift.Calculate(shift);
-                return View(shifted);
+                if (shift.ShiftFamily == "familyA")
+                {
+                    Shift shifted = new Shift();
+                    shifted = shift.Calculate(shift);
+                    TimeSpan hoursOfShift = shifted.EndDateTime.Subtract(shifted.StartDateTime);
+                    TimeSpan elevenHours = TimeSpan.Parse("0.11:00");
+                    if (hoursOfShift > elevenHours)
+                    {
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        return View(shifted);
+                    }
+                }
+                else if (shift.ShiftFamily == "familyB")
+                {
+                    Shift shifted = new Shift();
+                    shifted = shift.CalculateB(shift);
+                    TimeSpan hoursOfShift = shifted.EndDateTime.Subtract(shifted.StartDateTime);
+                    TimeSpan elevenHours = TimeSpan.Parse("0.11:00");
+                    if (hoursOfShift > elevenHours)
+                    {
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        return View(shifted);
+                    }
+                }
+                else
+                {
+                    Shift shifted = new Shift();
+                    shifted = shift.CalculateC(shift);
+                    TimeSpan hoursOfShift = shifted.EndDateTime.Subtract(shifted.StartDateTime);
+                    TimeSpan elevenHours = TimeSpan.Parse("0.11:00");
+                    if (hoursOfShift > elevenHours)
+                    {
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        return View(shifted);
+                    }
+                }
             }
-            else if(shift.ShiftFamily == "familyB")
+            catch
             {
-                Shift shifted = new Shift();
-                shifted = shift.CalculateB(shift);
-                return View(shifted);
+                return View("ShiftLengthError");
             }
-            else
-            {
-                Shift shifted = new Shift();
-                shifted = shift.CalculateC(shift);
-                return View(shifted);
-            }
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
