@@ -5,8 +5,8 @@ How to run: I built this program using c#8 and .NET 3.1. If you have cloned my r
 have Visual Studio 2019 installed, simply open the repo folder and click on the 
 file "BabySitter_Rate_Calculator.sln" and run the solution via IIS Express.
 
-The tests I have documented in my BabySitterTests project in the ShiftTests file 
-are for the following features:
+I used Xunit through Visual Studio for my testing. The tests I have documented in my 
+BabySitterTests project in the ShiftTests file are for the following features:
 The job:
 - Pays different rates for each family (based on bedtimes, kids and pets, etc...)
 - Family A pays $15 per hour before 11pm, and $20 per hour the rest of the night
@@ -34,7 +34,12 @@ Feature 5. Make a corresponding rate calculator for family C
 	a. Make a test for feature 5
 	b. Code Feature 5
 Feature 6. The time ranges are the same as the babysitter (5pm through 4am)
-
+	a. restrict the model building via the Shift Model
+	b. Alter the html page
+Feature 7. Visual Appeal! 
+	a. Display more information on Calculate View
+	b. Add some HTML/CSS Pizzazz
+Feature 8. More Testing. 
 
 
 
