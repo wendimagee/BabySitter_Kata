@@ -1,7 +1,7 @@
 # Babysitter_Kata
 An app to calculate a babysitter's nightly charge
 
-How to run: I built this program using c#8 and .NET 3.1. If you have cloned my repo and 
+How to run: I built this program using c#8 and .NET 5.0. If you have cloned my repo and 
 have Visual Studio 2019 installed, simply open the repo folder and click on the 
 file "BabySitter_Rate_Calculator.sln" and run the solution via IIS Express in your preferred web browser. 
 Chrome or Microsoft Edge are recommended. 
